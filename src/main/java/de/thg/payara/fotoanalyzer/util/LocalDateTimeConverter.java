@@ -10,12 +10,9 @@ import java.time.format.DateTimeFormatter;
 @ApplicationScoped
 public class LocalDateTimeConverter {
 
-    String extension;
-
     @Inject
-    public LocalDateTimeConverter(@ConfigProperty(name = "app.extension", defaultValue = "jpg") String extension) {
-        this.extension = extension;
-    }
+    @ConfigProperty(name = "app.extension", defaultValue = "jpg")
+    private String extension;
 
     private static final DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy:MM:dd HH:mm:ss");
     private static final DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");

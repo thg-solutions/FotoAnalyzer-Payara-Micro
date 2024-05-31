@@ -24,13 +24,8 @@ public class MetadataExtractorReader implements ImageMetadataReader {
 
     private static final Logger LOGGER = Logger.getLogger(MetadataExtractorReader.class.getName());
 
-    private final LocalDateTimeConverter localDateTimeConverter;
-
     @Inject
-    public MetadataExtractorReader(LocalDateTimeConverter localDateTimeConverter) {
-        this.localDateTimeConverter = localDateTimeConverter;
-    }
-
+    private LocalDateTimeConverter localDateTimeConverter;
 
     @Override
     public Image readImageMetadata(InputStream inputStream, String originalName) {

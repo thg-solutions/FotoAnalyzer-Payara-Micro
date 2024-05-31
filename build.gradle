@@ -24,19 +24,16 @@ dependencies {
     providedCompile 'jakarta.platform:jakarta.jakartaee-api:10.0.0'
     providedCompile 'org.eclipse.microprofile:microprofile:6.1'
     implementation libs.jersey.media.multipart
-    implementation libs.projectlombok
     implementation libs.metadata.extractor
 
     testImplementation libs.junit.jupiter
-    testImplementation libs.testcontainers.core
     testImplementation libs.testcontainers.junit
+    testImplementation libs.assertj.core
+    testImplementation libs.jersey.client
+    testImplementation libs.jersey.inject
 }
 
 repositories {
-    maven {
-        url 'https://nexus.dev.payara.fish/repository/payara-artifacts'
-        name 'payara-nexus-artifacts'
-    }
     mavenCentral()
 }
 

@@ -35,15 +35,11 @@ import java.util.Optional;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaHelidonServerCodegen", date = "2024-05-24T05:07:51.083708Z[Etc/UTC]")
 public class FotoAnalyzerController {
 
-    private final FotoAnalyzerService service;
-
     @Inject
-    public FotoAnalyzerController(FotoAnalyzerService service) {
-        this.service = service;
-    }
+    private FotoAnalyzerService service;
 
     @POST
-    @Path("/analyze_image")
+    @Path("analyze_image")
     @Consumes({ "multipart/form-data" })
     @Produces({ "application/json" })
     public Response analyzeImage(@FormDataParam(value = "file") FormDataBodyPart formDataBodyPart) throws IOException {
@@ -58,7 +54,7 @@ public class FotoAnalyzerController {
     }
 
     @POST
-    @Path("/rename_images")
+    @Path("rename_images")
     @Consumes( MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String, String> renameImages(@FormDataParam("files") List<FormDataBodyPart> files) {

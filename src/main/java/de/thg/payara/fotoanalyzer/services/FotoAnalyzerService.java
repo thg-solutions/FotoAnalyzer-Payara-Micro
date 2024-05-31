@@ -12,14 +12,11 @@ import java.util.Optional;
 @RequestScoped
 public class FotoAnalyzerService {
 
-    private final ImageMetadataReader imageMetadataReader;
-    private final LocalDateTimeConverter localDateTimeConverter;
+    @Inject
+    private ImageMetadataReader imageMetadataReader;
 
     @Inject
-    public FotoAnalyzerService(ImageMetadataReader imageMetadataReader, LocalDateTimeConverter localDateTimeConverter) {
-        this.imageMetadataReader = imageMetadataReader;
-        this.localDateTimeConverter = localDateTimeConverter;
-    }
+    private LocalDateTimeConverter localDateTimeConverter;
 
     public Optional<Image> analyseImage(InputStream inputStream, String originalName) {
         return Optional.ofNullable(imageMetadataReader.readImageMetadata(inputStream, originalName));
