@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'war'
+    id "fish.payara.micro-gradle-plugin" version "2.0.1"
+    alias(libs.plugins.lombok)
+}
+
+group = 'fish.payara'
+version = '0.1-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
+
+payaraMicro {
+    payaraVersion = '6.2024.5'
+    deployWar = true
+    useUberJar = false
+    daemon = false
+    commandLineOptions = [port: 8080]
+    javaCommandLineOptions = [Dtest: 'test123', ea:true] 
+}
+
+dependencies {
+    providedCompile 'jakarta.platform:jakarta.jakartaee-api:10.0.0'
+    providedCompile 'org.eclipse.microprofile:microprofile:6.1'
+    implementation libs.jersey.media.multipart
+    implementation libs.projectlombok
+    implementation libs.metadata.extractor
+
+    testImplementation libs.junit.jupiter
+    testImplementation libs.testcontainers.core
+    testImplementation libs.testcontainers.junit
+}
+
+repositories {
+    maven {
+        url 'https://nexus.dev.payara.fish/repository/payara-artifacts'
+        name 'payara-nexus-artifacts'
+    }
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task buildDockerImage(type: Exec) {
+    commandLine 'docker', 'build', '-t', 'fish.payara/hello-world:0.1-SNAPSHOT', '.'
+}
+
+task startDockerContainer(type: Exec, dependsOn: 'buildDockerImage') {
+    commandLine 'docker', 'run', '-p', '8080:8080', 'fish.payara/hello-world:0.1-SNAPSHOT'
+}
