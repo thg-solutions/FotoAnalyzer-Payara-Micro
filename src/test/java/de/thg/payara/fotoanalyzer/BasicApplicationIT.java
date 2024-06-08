@@ -21,24 +21,24 @@ import static jakarta.ws.rs.client.ClientBuilder.newClient;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Testcontainers
-public class BasicApplicationIT{
+public class BasicApplicationIT {
 
-    MountableFile warFile = MountableFile.forHostPath(Paths.get("build/libs/FotoAnalyzer-Payara-Micro-0.1-SNAPSHOT.war").toAbsolutePath(), 0777);
+    static MountableFile warFile = MountableFile.forHostPath(Paths.get("build/libs/FotoAnalyzer-Payara-Micro-0.1-SNAPSHOT.war").toAbsolutePath(), 0777);
 
     @Container
-     GenericContainer microContainer = new GenericContainer("payara/micro:6.2024.5-jdk21")
+    static GenericContainer microContainer = new GenericContainer("payara/micro:6.2024.5-jdk21")
             .withExposedPorts(8080)
             .withCopyFileToContainer(warFile, "/opt/payara/deployments/app.war")
             .waitingFor(Wait.forLogMessage(".* Payara Micro .* ready in .*\\s", 1))
             .withCommand("--deploy /opt/payara/deployments/app.war --contextRoot /");
 
     @Test
-    void checkContainerIsRunning(){
+    void checkContainerIsRunning() {
         assertThat(microContainer.isRunning()).isTrue();
     }
 
     @Test
-    void someTest() {
+    void analyzeImageTest() {
         InputStream inputStream = ClassLoader.getSystemResourceAsStream("testdata/PHOTO0021.JPG");
         MultiPart multiPart = new MultiPart();
         BodyPart bodyPart = new StreamDataBodyPart("file", inputStream, "PHOTO0021.JPG");
@@ -48,12 +48,12 @@ public class BasicApplicationIT{
                 .path("analyze_image")
                 .request()
                 .post(Entity.entity(multiPart, MediaType.MULTIPART_FORM_DATA_TYPE), Image.class);
+        String logs = microContainer.getLogs();
         Image expected = new Image();
         expected.setCreationDate(LocalDateTime.of(2015, 11, 22, 11, 04, 37));
         expected.setLatitude(48.15315222222222);
         expected.setLongitude(11.591775555555555);
         expected.setFilename("PHOTO0021.JPG");
         assertThat(result).isEqualTo(expected);
-
     }
 }

@@ -25,12 +25,15 @@ dependencies {
     providedCompile 'org.eclipse.microprofile:microprofile:6.1'
     implementation libs.jersey.media.multipart
     implementation libs.metadata.extractor
+    providedCompile libs.jersey.media.moxy
 
     testImplementation libs.junit.jupiter
     testImplementation libs.testcontainers.junit
     testImplementation libs.assertj.core
     testImplementation libs.jersey.client
     testImplementation libs.jersey.inject
+// https://mvnrepository.com/artifact/org.slf4j/slf4j-reload4j
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.13'
 }
 
 repositories {
