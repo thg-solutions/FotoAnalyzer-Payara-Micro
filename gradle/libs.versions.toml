@@ -7,7 +7,7 @@ metadata-extractor = '2.19.0'
 arquillian = "1.9.0.Final"
 junit-jupiter = "5.10.3"
 testcontainers = "1.19.8"
-assertj-core = '3.26.0'
+assertj-core = '3.26.3'
 
 [libraries]
 jersey-media-multipart = {module = 'org.glassfish.jersey.media:jersey-media-multipart', version.ref = 'jersey'}
