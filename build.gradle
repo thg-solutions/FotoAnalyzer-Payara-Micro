@@ -33,7 +33,7 @@ dependencies {
     testImplementation libs.jersey.client
     testImplementation libs.jersey.inject
 // https://mvnrepository.com/artifact/org.slf4j/slf4j-reload4j
-    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.14'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.15'
 }
 
 repositories {
