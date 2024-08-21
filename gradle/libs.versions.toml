@@ -25,4 +25,4 @@ assertj-core = {module = 'org.assertj:assertj-core',  version.ref = 'assertj-cor
 
 
 [plugins]
-lombok = {id = 'io.freefair.lombok', version = '8.7.1'}
+lombok = {id = 'io.freefair.lombok', version = '8.10'}
