@@ -26,6 +26,7 @@ dependencies {
     implementation libs.jersey.media.multipart
     implementation libs.metadata.extractor
     providedCompile libs.jersey.media.moxy
+    implementation libs.commons.compress
 
     testImplementation libs.junit.jupiter
     testImplementation libs.testcontainers.junit

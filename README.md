@@ -28,3 +28,7 @@ Stattdessen ist folgendermaßen vorzugehen:
 * ggf. sicherstellen, dass Projekt und Modul dieselben Gradle- und Java-Versionen benutzen.
 
 Jetzt können im Quellcode des Moduls Breakpoint gesetzt werden, die vom Debugger angesprungen werden.
+
+## Generieren der REST-Schnittstelle mit OpenAPI-Generator
+
+Payara-Micro verwendet offensichtlich Jersey als REST-Framework. Ein mit dem OpenAPI-Generator `jayrs-jersey` scheint ein zufriedenstellendes Gerüst für die Schnittstelle zu erzeugen. Allerdings muss `--additional-properties=library=jersey3` angegeben werden, um JakartaEE (anstelle von JavaEE) zu verwenden.
