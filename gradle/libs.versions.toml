@@ -2,7 +2,7 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 [versions]
 jersey = '3.1.8'
-lombok = '1.18.32'
+lombok = '1.18.34'
 metadata-extractor = '2.19.0'
 arquillian = "1.9.1.Final"
 junit-jupiter = "5.11.0"
