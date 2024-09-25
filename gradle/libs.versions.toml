@@ -8,6 +8,7 @@ arquillian = "1.9.1.Final"
 junit-jupiter = "5.11.1"
 testcontainers = "1.20.1"
 assertj-core = '3.26.3'
+commons-compress = '1.27.1'
 
 [libraries]
 jersey-media-multipart = {module = 'org.glassfish.jersey.media:jersey-media-multipart', version.ref = 'jersey'}
