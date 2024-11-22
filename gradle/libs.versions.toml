@@ -6,7 +6,7 @@ lombok = '1.18.36'
 metadata-extractor = '2.19.0'
 arquillian = "1.9.1.Final"
 junit-jupiter = "5.11.3"
-testcontainers = "1.20.3"
+testcontainers = "1.20.4"
 assertj-core = '3.26.3'
 commons-compress = '1.27.1'
 
