@@ -7,7 +7,7 @@ metadata-extractor = '2.19.0'
 arquillian = "1.9.3.Final"
 junit-jupiter = "5.11.4"
 testcontainers = "1.20.4"
-assertj-core = '3.27.2'
+assertj-core = '3.27.3'
 commons-compress = '1.27.1'
 
 [libraries]
