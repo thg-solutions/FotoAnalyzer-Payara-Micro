@@ -26,4 +26,4 @@ assertj-core = {module = 'org.assertj:assertj-core',  version.ref = 'assertj-cor
 commons-compress = {module = 'org.apache.commons:commons-compress', version.ref = 'commons-compress'}
 
 [plugins]
-lombok = {id = 'io.freefair.lombok', version = '8.12.1'}
+lombok = {id = 'io.freefair.lombok', version = '8.12.2'}
