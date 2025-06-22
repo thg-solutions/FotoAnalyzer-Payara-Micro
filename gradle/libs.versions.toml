@@ -4,7 +4,7 @@
 jersey = '3.1.10'
 lombok = '1.18.38'
 metadata-extractor = '2.19.0'
-arquillian = "1.9.4.Final"
+arquillian = "1.9.5.Final"
 junit-bom = "5.13.1"
 testcontainers = "1.21.2"
 assertj-core = '3.27.3'
