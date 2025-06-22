@@ -5,7 +5,7 @@ jersey = '3.1.10'
 lombok = '1.18.38'
 metadata-extractor = '2.19.0'
 arquillian = "1.9.4.Final"
-junit-jupiter = "5.12.2"
+junit-bom = "5.13.1"
 testcontainers = "1.20.6"
 assertj-core = '3.27.3'
 commons-compress = '1.27.1'
@@ -19,7 +19,7 @@ projectlombok = {module = 'org.projectlombok:lombok', version.ref = 'lombok'}
 metadata-extractor = {module = 'com.drewnoakes:metadata-extractor', version.ref = 'metadata-extractor'}
 arquillian-junit = { module = "org.jboss.arquillian.junit:arquillian-junit-container", version.ref = "arquillian" }
 arquillian-testenricher-resource = { module = "org.jboss.arquillian.testenricher:arquillian-testenricher-resource", version.ref = "arquillian" }
-junit-jupiter = { module = 'org.junit.jupiter:junit-jupiter', version.ref = 'junit-jupiter' }
+junit-bom = { module = 'org.junit:junit-bom', version.ref = 'junit-bom' }
 testcontainers-core = {module = 'org.testcontainers:testcontainers', version.ref = 'testcontainers'}
 testcontainers-junit  = {module = 'org.testcontainers:junit-jupiter', version.ref = 'testcontainers'}
 assertj-core = {module = 'org.assertj:assertj-core',  version.ref = 'assertj-core'}
